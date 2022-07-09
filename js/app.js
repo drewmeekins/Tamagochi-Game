@@ -7,6 +7,21 @@ class Tamagotchi {
         this.boredom = 10
     }
 
-    
+    // ageUp(){
+    //     return this.age += 1
+    // }
+
+    eat(){
+        return this.hunger += 1
+    }
+
+    sleepy(){
+        return this.sleepiness -= 1
+    }
+
+    bored(){
+        return this.boredom += 1
+    }
 
 }
+
