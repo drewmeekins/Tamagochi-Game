@@ -3,13 +3,26 @@ body{
     background-repeat: no-repeat;
 }
 
+.status, h1{
+    color: white;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#title{
+    justify-content: start;
+}
+
 .sprite{
     display: flex;
     justify-content:center;
     margin-bottom: 60px;
     position: relative;
-    top: 166px;
-    
+    top: 140px; 
 }
 
 #link{
