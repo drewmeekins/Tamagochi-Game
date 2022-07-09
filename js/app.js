@@ -35,15 +35,22 @@ const link = new Tamagotchi(`${name}`)
 
 // game
 const game = {
-    setHunger() {
-        const intervalID = setInterval(() => {
-            const hungerID = document.querySelector(`.hunger`)
-        })
-    },
-
     startGame() {
         alert(`Welcome to the The Tamagatchi Tournament`)
     },
+
+    setHunger() {
+        const intervalID = setInterval(() => {
+            const hungerID = document.querySelector(`.hunger`)
+            hungerID.innerHTML = `Hunger: ${link.hunger}`
+            link.hunger -= 1
+            if(link.hunger == 0){
+                alert(`${this.name} has fainted from hunger`)
+            }
+        }, 2000)
+    },
+
+
 
     setName() {
         this.name = prompt(`What's your Tamagotchi's name?`)
@@ -55,5 +62,11 @@ const game = {
 startButton.addEventListener('click', () => {
     game.startGame()
     game.setName()
-    console.log('working start')
+    game.setHunger()
+    // console.log('working start')
+})
+
+eatButton.addEventListener('click', () => {
+    link.eat()
+    // console.log(`I'm eating`)
 })
