@@ -2,3 +2,16 @@ body{
     background-size: fill;
     background-repeat: no-repeat;
 }
+
+.sprite{
+    display: flex;
+    justify-content:center;
+    margin-bottom: 60px;
+    position: relative;
+    top: 166px;
+    
+}
+
+#link{
+    max-width: 5%;
+}
