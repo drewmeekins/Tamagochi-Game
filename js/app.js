@@ -25,3 +25,7 @@ class Tamagotchi {
 
 }
 
+// game
+const game = () => {
+    const hunger()
+}
