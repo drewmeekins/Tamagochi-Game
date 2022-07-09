@@ -4,7 +4,7 @@ class Tamagotchi {
         this.age = 0
         this.hunger = 10
         this.sleepiness = 10
-        this.boredom = 10
+        this.boredom = 0
     }
 
     // ageUp(){
@@ -19,8 +19,8 @@ class Tamagotchi {
         return this.sleepiness -= 1
     }
 
-    bored(){
-        return this.boredom += 1
+    play(){
+        return this.boredom -= 1
     }
 
 }
@@ -63,6 +63,29 @@ const game = {
         }, 2000)
     },
 
+    setSleepiness() {
+        const intervalID = setInterval(() => {
+            const sleepinessID = document.querySelector(`.sleepiness`)
+            sleepinessID.innerHTML = `Sleepiness: ${link.sleepiness}`
+            link.sleepiness -= 1
+            if(link.sleepiness == 3){
+                alert(`${this.name} needs a nap`)
+                return
+            }
+        }, 2000)
+    },
+
+    setBoredom() {
+        const intervalID = setInterval(() => {
+            const boredomID = document.querySelector(`.boredom`)
+            boredomID.innerHTML = `Boredom: ${link.boredom}`
+            link.boredom += 1
+            if(link.boredom == 10){
+                alert(`${this.name} is going to beat up some Bokoblins out of boredom`)
+            }
+        }, 2000)
+    },
+
     setName() {
         this.name = prompt(`What's your Tamagotchi's name?`)
         const nameID = document.querySelector(`.name`)
@@ -75,6 +98,8 @@ startButton.addEventListener('click', () => {
     game.setName()
     game.setHunger()
     game.setAge()
+    game.setSleepiness()
+    game.setBoredom()
     // console.log('working start')
     return
 })
@@ -83,3 +108,9 @@ eatButton.addEventListener('click', () => {
     link.eat()
     // console.log(`I'm eating`)
 })
+
+playButton.addEventListener('click', () => {
+    link.play()
+    // console.log(`I'm eating`)
+})
+
