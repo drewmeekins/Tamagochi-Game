@@ -1,7 +1,7 @@
 class Tamagotchi {
-    constructor(name, age){
+    constructor(name){
         this.name = name
-        this.age = age
+        this.age = 0
         this.hunger = 10
         this.sleepiness = 10
         this.boredom = 10
@@ -46,11 +46,22 @@ const game = {
             link.hunger -= 1
             if(link.hunger == 0){
                 alert(`${this.name} has fainted from hunger`)
+                return
             }
         }, 2000)
     },
 
-
+    setAge() {
+        const intervalID = setInterval(() => {
+            const ageID = document.querySelector(`.age`)
+            ageID.innerHTML = `Age: ${link.age}`
+            link.age += 1
+            if(link.age == 5){
+                alert(`${this.name} just grew up`)
+                document.querySelector(`#link`).src = 'img/link_old.gif'
+            }
+        }, 2000)
+    },
 
     setName() {
         this.name = prompt(`What's your Tamagotchi's name?`)
@@ -63,7 +74,9 @@ startButton.addEventListener('click', () => {
     game.startGame()
     game.setName()
     game.setHunger()
+    game.setAge()
     // console.log('working start')
+    return
 })
 
 eatButton.addEventListener('click', () => {
